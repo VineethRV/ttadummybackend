@@ -2,6 +2,9 @@ import express, { NextFunction, Request, Response } from 'express';
 const jwt=require("jsonwebtoken");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const secretKey:String="bob"
+
+
 
 app.use(express.json());
 
@@ -205,8 +208,6 @@ app.get('/peekTeacher', verifyToken, (req: Request, res: Response) => {
       ]
   };
 
-  // Populate the timetable with actual data (if available)
-  // ... (code to fetch timetable data from a database or other source)
 
   res.json(response);
 });
